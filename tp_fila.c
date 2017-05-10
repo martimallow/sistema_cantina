@@ -19,14 +19,20 @@ void Enfileira(TFItem x, TFila *Fila) {
     Fila->Tras->Prox = NULL;
 }
 
+void Enfileira2(TFila *ficha, int inicio) {
+  TFItem *x = (TFItem*) malloc(sizeof(TFItem));
+  x->Chave = 2*inicio+1;
+  Enfileira(*x,ficha);
+  x->Chave = 2*inicio+2;
+  Enfileira(*x,ficha);
+}
 
-void Desenfileira(TFila *Fila, TFItem *Item) {
-    if (Vazia(*Fila)) {
+void Desenfileira(TFila *Fila) {
+    if (VaziaF(*Fila)) {
         printf("Erro: fila VaziaF\n");
         return;
     }
     ApontadorF q = Fila->Frente;
     Fila->Frente = Fila->Frente->Prox;
-    *Item = Fila->Frente->FItem;
     free(q);
 }

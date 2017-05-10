@@ -1,17 +1,34 @@
-entra na fila ficha 
-fifo sai da fila ficha 
+﻿entra na fila ficha 
+
+fifo 
+sai da fila ficha 
+
 entra na fila bet
-fifo sai da fila bet se bet > 0 senao espera 
-se servir de um alimento = 1 iteração (um espaço de tempo), completar o prato = 4 iterações 
+ 
+fifo 
+sai da fila bet se bet > 0 senao espera 
+
+
+se servir de um alimento = 1 iteração (um espaço de tempo), 
+completar o prato = 4 iterações 
+
  
 1 espaço de tempo 
-	+2 ficha 
-	-1 ficha
-	-1 bej
-	1 alimento
+	
++2 ficha 
+	
+-1 ficha
+	
+-1 bej
+	
+1 alimento
+
+
 
 
 pilha tem no max 30 bandejas
+
+
 
 cada 12 espaços de tempo +10 bej
 

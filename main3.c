@@ -1,17 +1,30 @@
 #include "function.c"
+//1 fila de ficha
+//2 filas de bandejas
+//1 pilha de bandeja com 40
 
 int main() {
   TFila *ficha;
   ficha = (TFila*) malloc(sizeof(TFila));
   FFVazia(ficha);
 
+
   TFila *bet;//fila bandejas e talheres
   bet = (TFila*) malloc(sizeof(TFila));
   FFVazia(bet);
 
+  TFila *bet2;//fila bandejas e talheres
+  bet2 = (TFila*) malloc(sizeof(TFila));
+  FFVazia(bet2);
+
+
   TPilha *pilha_bandejas;
   pilha_bandejas = (TPilha*) malloc(sizeof(TPilha));
-  FPVazia(pilha_bandejas);
+  FPVazia(pilha_bandejas, 30);
+
+  TPilha *pilha_bandejas2;
+  pilha_bandejas2 = (TPilha*) malloc(sizeof(TPilha));
+  FPVazia(pilha_bandejas2);
 
   int tempo;
   int inicio = 0;
@@ -26,9 +39,11 @@ int main() {
   for(inicio; inicio < tempo; inicio++){
     if(inicio%12 == 0){
       Empilha10(pilha_bandejas);
+      Empilha10(pilha_bandejas2);
     }
 
     Enfileira2(ficha,inicio);
+    Enfileira2(ficha2,inicio);
 
     if(PegarBandeja(pilha_bandejas,bet)){
       tempo_gasto += inicio + cte + atraso;
@@ -37,7 +52,15 @@ int main() {
       atraso++;
     }
 
+    if(PegarBandeja(pilha_bandejas2,bet)){
+      tempo_gasto += inicio + cte + atraso;
+      atendidos++;
+    }else{
+      atraso++;
+    }
+
     DesenfileiraEnfileira(ficha,bet);
+    DesenfileiraEnfileira(ficha2,bet);
 
     if(inicio%2 == 0){
       cte-=1;

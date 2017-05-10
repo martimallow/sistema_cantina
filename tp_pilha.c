@@ -1,36 +1,28 @@
 #include "tp_pilha.h"
 
-void FPVazia(TPilha *Pilha) {
-    Pilha->Topo = (TCelula*) malloc(sizeof(TCelula));
-    Pilha->Fundo = Pilha->Topo;
-    Pilha->Topo->Prox = NULL;
-    Pilha->Tamanho = 0;
+void FPVazia(TPilha *Pilha, int max) {
+  #define MAX max;
+  Pilha->Topo = MAX;
 }
 
 int Vazia(TPilha Pilha) {
-    return (Pilha.Topo == Pilha.Fundo);
+  return (Pilha.Topo == 0);
 }
 
-void Empilha(TPItem x, TPilha *Pilha) {
-    Apontador Aux = (TCelula*)malloc(sizeof(TCelula));
-    Pilha->Topo->PItem = x;
-    Aux->Prox = Pilha->Topo;
-    Pilha->Topo = Aux;
-    Pilha->Tamanho++;
+void Empilha10(TPilha *Pilha) {
+  Pilha->Topo+= 10;
+  if (Pilha->Topo >= MAX)
+    Pilha->Topo= MAX;
 }
 
-void Desempilha(TPilha *Pilha, TPItem *PItem) {
-    if (Vazia(*Pilha)) {
-        printf("Erro lista vazia\n");
-        return;
-    }
-    Apontador q = Pilha->Topo;
-    Pilha->Topo = q->Prox;
-    *PItem = q->Prox->PItem;
-    free(q);
-    Pilha->Tamanho--;
+void Desempilha(TPilha *Pilha) {
+  if (Vazia(*Pilha))
+  printf("Erro: pilha vazia\n");
+  else {
+    Pilha->Topo--;
+  }
 }
 
 int Tamanho(TPilha Pilha) {
-    return Pilha.Tamanho;
+  return Pilha.Topo;
 }

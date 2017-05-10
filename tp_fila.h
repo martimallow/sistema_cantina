@@ -27,4 +27,6 @@ int VaziaF(TFila Fila) ;
 
 void Enfileira(TFItem x, TFila *Fila);
 
-void Desenfileira(TFila *Fila, TFItem *Item);
+void Enfileira2(TFila *ficha, int inicio);
+
+void Desenfileira(TFila *Fila);
